@@ -1,0 +1,105 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║   🔧 CORREÇÃO RÁPIDA - CONFLITO DE VERSÕES                               ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+PROBLEMA IDENTIFICADO:
+─────────────────────────────────────────────────────────────────────────────
+
+streamlit-folium 0.16.0 requer folium < 0.15
+Mas temos folium 0.15.1 instalado
+
+Isso causa conflito de dependências!
+
+
+═══════════════════════════════════════════════════════════════════════════
+SOLUÇÃO AUTOMÁTICA (30 SEGUNDOS)
+═══════════════════════════════════════════════════════════════════════════
+
+Criei um script que corrige automaticamente:
+
+PASSO 1: Execute este arquivo
+────────────────────────────────────────
+
+   CORRECAO-VERSOES.bat
+
+O que ele faz:
+   ✓ Desinstala versões conflitantes
+   ✓ Instala versões compatíveis:
+     - streamlit-folium 0.18.0 (aceita folium 0.15.1)
+     - folium 0.15.1
+   ✓ Testa se tudo funciona
+
+PASSO 2: Inicie o dashboard
+────────────────────────────────────────
+
+   START-WINDOWS.bat
+
+
+═══════════════════════════════════════════════════════════════════════════
+SOLUÇÃO MANUAL (PowerShell)
+═══════════════════════════════════════════════════════════════════════════
+
+Abra PowerShell na pasta do projeto:
+
+# 1. Ativar venv
+.venv\Scripts\Activate.ps1
+
+# 2. Desinstalar versões problemáticas
+pip uninstall -y streamlit-folium folium
+
+# 3. Instalar versões corretas (NA ORDEM CERTA!)
+pip install folium==0.15.1
+pip install streamlit-folium==0.18.0
+pip install plotly==5.18.0
+pip install pandas==2.1.4
+pip install requests==2.31.0
+pip install streamlit==1.31.0
+
+# 4. Testar
+python -c "import streamlit, folium, streamlit_folium; print('OK!')"
+
+# 5. Iniciar
+streamlit run src\urban_mobility\dashboard.py
+
+
+═══════════════════════════════════════════════════════════════════════════
+POR QUE ISSO ACONTECEU?
+═══════════════════════════════════════════════════════════════════════════
+
+streamlit-folium tem versões com dependências diferentes:
+
+   Versão 0.16.0:  requer folium < 0.15   ❌ (conflito)
+   Versão 0.18.0:  requer folium >= 0.15  ✅ (compatível)
+
+Solução: Atualizar para streamlit-folium 0.18.0
+
+
+═══════════════════════════════════════════════════════════════════════════
+TESTE RÁPIDO
+═══════════════════════════════════════════════════════════════════════════
+
+Depois da correção, teste:
+
+python -c "import streamlit, folium, streamlit_folium, plotly, pandas, requests; print('✅ TUDO OK!')"
+
+Se aparecer "✅ TUDO OK!", execute:
+
+streamlit run src\urban_mobility\dashboard.py
+
+
+═══════════════════════════════════════════════════════════════════════════
+CHECKLIST
+═══════════════════════════════════════════════════════════════════════════
+
+[ ] Executei CORRECAO-VERSOES.bat
+[ ] Vejo "✓ Todos os modulos instalados corretamente!"
+[ ] Teste passou (python -c "import...")
+[ ] Dashboard abre sem erros
+[ ] Mapa aparece quando busco dados
+
+Se TODOS marcados: PRONTO! 🎉
+
+
+═══════════════════════════════════════════════════════════════════════════
