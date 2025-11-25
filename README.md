@@ -274,7 +274,7 @@ MIT License - see LICENSE file for details.
 ## Contact
 
 **Alexandre F. Costa**
-- Email: alexandre.portella03@gmail.com
+- Email: alexandrefcosta.dev@gmail.com
 - GitHub: [@AlexandreFCosta](https://github.com/AlexandreFCosta)
 - LinkedIn: [Alexandre Costa](https://www.linkedin.com/in/alexandrefeitosacosta/)
 
